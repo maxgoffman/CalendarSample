@@ -1,0 +1,66 @@
+@import '../../styles/placeholders';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 30%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 1rem;
+  padding: 1%;
+  min-width:265px;
+}
+
+
+.display-none {
+  display: none;
+}
+
+.close-button, .button-save, .delete-button {
+  @extend %time-header-font;
+  @include assign-value-to-props((-webkit-user-select, -moz-user-select, user-select, outline, text-decoration, border), none);
+  background-color:transparent;
+  cursor: pointer;
+}
+
+.close-button, .button-save {
+  color: $secondary-color;
+}
+  
+.delete-button, .error {
+  color: $warning-color;
+}
+.close-button {
+  cursor: pointer;
+}
+
+.modal-column {
+  @extend %flex-column;
+  flex: 1 1;
+  min-width: 0;
+}
+
+.modal-row {
+  @extend %flex-row;
+}
+
+.center {
+  justify-content: center;
+}
+
+.right {
+  justify-content: flex-end;
+}

@@ -1,0 +1,135 @@
+@import '../../../styles/placeholders';
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.month-view, .month-row {
+  @extend %flex-column;
+}
+.month-view, .month-row, .row-content {
+  position: relative;
+}
+.month-view, .day-header, .month-row, .row-bg, .day-bg {
+  flex: 1 0;
+}
+.day-header, .month-row, .row-bg {
+  overflow: hidden;
+}
+
+//View Properties
+.month-view {
+  border: $standard-border;
+  @include assign-value-to-props((-webkit-user-select, -moz-user-select, user-select, outline), none);
+  @include assign-value-to-props((width, height), 100%);
+}
+
+.month-header, .row-fg, .row-bg {
+  @extend %flex-row;
+}
+//Header class
+.day-header {
+  text: {
+    overflow: ellipsis;
+    align: center;
+  }
+  font: {
+    weight: bold;
+    size: 90%;
+  }
+  white-space: nowrap;
+  vertical-align: middle;
+  min-height: 0;
+  background: $secondary-color;
+  color: $primary-color;
+}
+
+.month-row {
+  flex-basis: 0px;
+  height: 100%;
+  border-bottom: $standard-border;
+}
+  
+  
+.row-bg {
+  position: absolute;
+  @include assign-value-to-props((top, left, right, bottom), 0);
+}
+  
+.day-bg {
+  border-left: $standard-border;
+}
+  
+.row-empty {
+  color: $empty-color;
+}
+
+.date-cell { 
+  flex: 1 1;
+  min-width: 0;
+  padding-left: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.weekend-day {
+  color: $secondary-color;
+  background: $primary-color;
+}
+
+.row-content {
+  @include assign-value-to-props((-webkit-user-select, -moz-user-select, user-select, outline), none);
+  z-index: 4;
+}
+
+.row-segment {
+  padding: 0;
+  
+  border-radius: 5px;
+}
+
+.month-event-layer{
+  position: relative;
+}
+
+.month-event {
+  color: $primary-color;
+  position: relative;
+  width: 90%;
+  height: 100%;
+}
+
+.month-event-title {
+  padding: 2px 5px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
+.month-calendar-header {
+  @extend %flex-row;
+  flex: 0 0 auto;
+  border-right: $standard-border;
+  margin-right: 17px;
+  text-align: center;
+  @extend %time-header-font;
+  vertical-align: middle;
+  background: $primary-color;
+  width: 100%;
+}
+.month-calendar-header-column {
+  @extend %flex-column;
+  flex: 1 1;
+  min-width: 0;
+}
+
+.header-button {
+  width:3rem;
+  color: $secondary-color;
+  @extend %time-header-font;
+  @include assign-value-to-props((-webkit-user-select, -moz-user-select, user-select, outline, text-decoration, border), none);
+  background-color:transparent;
+  cursor: pointer;
+}
+.active-cell {
+  cursor: pointer;
+}
